@@ -33,7 +33,6 @@ public class menuprincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,9 +59,6 @@ public class menuprincipal extends javax.swing.JFrame {
 
         jMenu4.setText("SERVICIOS");
         jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("PAGOS");
-        jMenuBar1.add(jMenu5);
 
         jMenu6.setText(" CERRAR SESION");
         jMenuBar1.add(jMenu6);
@@ -124,7 +120,6 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

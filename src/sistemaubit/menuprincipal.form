@@ -24,11 +24,6 @@
             <Property name="text" type="java.lang.String" value="SERVICIOS"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="PAGOS"/>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
             <Property name="text" type="java.lang.String" value=" CERRAR SESION"/>
