@@ -268,16 +268,17 @@ jTable1.setModel(modelo);
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mest, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(bbmod))
+                                .addComponent(mest, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(mcod, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(mcod, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(bbmod))
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(129, 129, 129)
@@ -290,12 +291,11 @@ jTable1.setModel(modelo);
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(mcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(mcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bbmod))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -497,6 +497,8 @@ jTable1.setModel(modelo);
                 rruc.setText("");
                 rser.setText("");
                 JOptionPane.showMessageDialog(rootPane, "Registrado correctamente");
+                 limpiartabla();
+        buscar("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -531,9 +533,11 @@ jTable1.setModel(modelo);
                 bmod.setEnabled(false);
                 bbmod.setEnabled(true);
                 JOptionPane.showMessageDialog(rootPane, "Modificado correctamente");
+                 limpiartabla();
+        buscar("");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error modificar"+ex.getMessage());
         }
     }//GEN-LAST:event_bmodActionPerformed
 
@@ -608,6 +612,8 @@ jTable1.setModel(modelo);
                 eser.setText("");
                 beli.setEnabled(false);
                 JOptionPane.showMessageDialog(rootPane, "Eliminado correctamente");
+                 limpiartabla();
+        buscar("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);

@@ -34,6 +34,7 @@ public class clientes extends javax.swing.JInternalFrame {
 
     public void buscar(String nom)
     {try {
+        //CONCADENADO PARA BUSCAR CON LIKE
       String sql = "SELECT * FROM ubit.clientes c join estado e on c.est=e.idestado where concat(c.ruc,c.razonsocial) like '%"+nom+"%';";
             st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -46,22 +47,20 @@ public class clientes extends javax.swing.JInternalFrame {
                 String est = rs.getString("descrEs");
  DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
                 Object [] fila=new Object[5];
-                fila[0]=ruc;
+         fila[0]=ruc;
         fila[1]=raz;
         fila[2]=dir;
         fila[3]=telf; 
-         fila[4]=est;
-                
+         fila[4]=est;  
                 modelo.addRow(fila);
 jTable1.setModel(modelo);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("error 1:"+ex.getMessage());
         }
 
 }
-    
-
+  
 public void limpiartabla(){
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -546,6 +545,7 @@ public void limpiartabla(){
             int est = rest.getSelectedIndex() + 1;
             if (ruc.equals("") || raz.equals("") || dir.equals("") || telf.equals("")) {
                 JOptionPane.showMessageDialog(rootPane, "Verifique que los datos esten llenos");
+                
             } else {
                 String sql = "INSERT INTO `ubit`.`clientes` "
                         + "(`ruc`, `razonsocial`, `dir`, `telf1`, `est`) VALUES "
@@ -558,6 +558,8 @@ public void limpiartabla(){
                 rdir.setText("");
                 rtel.setText("");
                 JOptionPane.showMessageDialog(rootPane, "Registrado correctamente");
+                limpiartabla();
+                buscar("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -591,6 +593,8 @@ public void limpiartabla(){
                 bmod.setEnabled(false);
                 bbmod.setEnabled(true);
                 JOptionPane.showMessageDialog(rootPane, "Modificado correctamente");
+                 limpiartabla();
+                buscar("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -655,6 +659,8 @@ public void limpiartabla(){
                 eraz.setText("");
                 beli.setEnabled(false);
                 JOptionPane.showMessageDialog(rootPane, "Eliminado correctamente");
+                 limpiartabla();
+                buscar("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
