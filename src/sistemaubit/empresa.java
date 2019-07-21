@@ -524,6 +524,8 @@ jTable1.setModel(modelo);
                 rdir.setText("");
                 rtel.setText("");
                 JOptionPane.showMessageDialog(rootPane, "Registrado correctamente");
+                limpiartabla();
+                buscar("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -563,6 +565,8 @@ jTable1.setModel(modelo);
                 bmod.setEnabled(false);
                 bbmod.setEnabled(true);
                 JOptionPane.showMessageDialog(rootPane, "Modificado correctamente");
+                limpiartabla();
+                buscar("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -650,6 +654,8 @@ jTable1.setModel(modelo);
         } catch (SQLException ex) {
             Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        limpiartabla();
+                buscar("");
     }//GEN-LAST:event_beliActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
